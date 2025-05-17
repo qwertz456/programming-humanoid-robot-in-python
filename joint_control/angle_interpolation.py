@@ -91,6 +91,8 @@ class AngleInterpolationAgent(PIDAgent):
                     f[elem], f[max_elem] = f[max_elem], f[elem]
                 #Elimination:
                 for row in range(elem+1, 4):
+                    if c[elem][elem] == 0:
+                        c[elem][elem] = 1
                     fac = c[row][elem]/c[elem][elem]
                     for column in range(elem, 4):
                         c[row][column] -= fac*c[elem][column]
